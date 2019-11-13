@@ -12,11 +12,11 @@ Gem::Specification.new do |spec|
   spec.description   = %q{En esta practica se plantea para aprender a usar bundle, rspec y como funciona el desarrollo basado en TDD.}
   spec.homepage      = "https://github.com/ULL-ESIT-LPP-1920/tdd-JDM-ULL-93"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  spec.metadata["allowed_push_host"] = "https://github.com/ULL-ESIT-LPP-1920/tdd-JDM-ULL-93"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/ULL-ESIT-LPP-1920/tdd-JDM-ULL-93"
-  spec.metadata["changelog_uri"] = "https://github.com/ULL-ESIT-LPP-1920/tdd-JDM-ULL-93/Changelog.md"
+  spec.metadata["changelog_uri"] = "https://github.com/ULL-ESIT-LPP-1920/tdd-JDM-ULL-93"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
