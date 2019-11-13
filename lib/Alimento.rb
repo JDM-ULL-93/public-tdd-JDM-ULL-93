@@ -42,7 +42,7 @@ class Alimento
 		end
 	end
 
-	attr_reader :nombre, :proteinas, :carbohidratos, :lipidos, :gei, :terreno
+	attr_reader :nombre, :proteinas, :carbohidratos, :lipidos, :gei, :terreno, :valorEnergetico
 	
 	def initialize(nombre,proteinas,carbohidratos,lipidos, gei,terreno)
 		@nombre = nombre
@@ -51,5 +51,7 @@ class Alimento
 		@lipidos = lipidos
 		@gei = gei
 		@terreno = terreno
+
+		@valorEnergetico = (@proteinas * 4 ) + (@carbohidratos * 4) + (@lipidos * 9)
 	end
 end

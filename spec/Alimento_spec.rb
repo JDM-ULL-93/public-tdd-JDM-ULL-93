@@ -24,16 +24,18 @@ describe Alimento do
 			expect(@alimentoTest.terrenoUsado(5)).to eq(17.0)
 		end
 		it "Prueba de que el valor energetico del alimento corresponde" do
-			expect(@alimentoTest.valorEnergetico).to eq(TODO)
-		end
-		it "Prueba de que el impacto medioambiental diario de un hombre  comiendo solo ese alimento corresponde" do
-			expect(@alimentoTest.impactoMedioambiental(true)).to eq(TODO)
-		end
-		it "Prueba de que el impacto medioambiental diario de una mujer comiendo solo ese alimento corresponde" do
-			expect(@alimentoTest.impactoMedioambiental(false)).to eq(TODO)
-		end
-		it "Prueba de que to_s funciona correctamente" do
-			expect(@alimentoTest.to_s()).to eq("TODO")
+			expect(@alimentoTest.valorEnergetico.round(1)).to eq(1123.0/10.0)
 		end
 	end
+
+	context "Probando que los metodos funcionan correctamente" do
+		it "Prueba de que la cantidad de kg de dicho alimento a comer para la ingesta recomendada de un hombre corresponde" do
+			expect(@alimentoTest.cantidadNecesaria(3000,54).round(2)).to eq(26.71)
+		end
+		it "Prueba de que la cantidad de kg de dicho alimento a comer para la ingesta recomendada de una mujer corresponde" do
+			expect(@alimentoTest.cantidadNecesaria(2300,41).round(2)).to eq(20.48)
+		end
+		it "Prueba de que el metodo para formatear el alimento funciona correctamente" do
+			expect(@alimentoTest.to_s()).to eq("Nombre \t Proteinas \t Carbohidratos \t Lipidos \t GEI \t Terreno \n Carne de Vaca \t 21.1 \t 0.0 \t 3.1 \t 50.0 \t 164.0 ")	
+		end
 end
