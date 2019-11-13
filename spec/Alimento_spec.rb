@@ -38,4 +38,5 @@ describe Alimento do
 		it "Prueba de que el metodo para formatear el alimento funciona correctamente" do
 			expect(@alimentoTest.to_s()).to eq("Nombre \t Proteinas \t Carbohidratos \t Lipidos \t GEI \t Terreno \n Carne de Vaca \t 21.1 \t 0.0 \t 3.1 \t 50.0 \t 164.0 ")	
 		end
+	end
 end
