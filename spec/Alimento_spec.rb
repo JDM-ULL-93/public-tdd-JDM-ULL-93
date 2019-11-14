@@ -45,10 +45,10 @@ describe Alimento do
 			expect(@alimentoTest.terrenoUsado(26.71).round(2)).to eq(4380.44)
 		end
 		it "Prueba de que el impacto medio ambiental para un hombre de entre 20-39 años corresponde" do
-			expect(@alimentoTest.impactoAmbiental(26.71).round(2).to eq(1335.5)
+			expect(@alimentoTest.impactoAmbiental(26.71).round(2)).to eq(1335.5)
 		end
 		it "Prueba de que el impacto medio ambiental para una mujer de entre 20-39 años corresponde" do
-			expect(@alimentoTest.impactoAmbiental(20.48).round(2).to eq(1024.0)
+			expect(@alimentoTest.impactoAmbiental(20.48).round(2)).to eq(1024.0)
 		end
 
 	end
