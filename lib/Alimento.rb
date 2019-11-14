@@ -70,5 +70,9 @@ class Alimento
 
 	def to_s
 		return "Nombre \t Proteinas \t Carbohidratos \t Lipidos \t GEI \t Terreno \n #{@nombre} \t #{@proteinas} \t #{@carbohidratos} \t #{@lipidos} \t #{@gei} \t #{@terreno}"  
+	end
+		
+	def terrenoUsado(kg)
+		return @terreno*kg
 	end 
 end

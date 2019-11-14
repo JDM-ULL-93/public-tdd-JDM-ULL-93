@@ -42,7 +42,7 @@ describe Alimento do
 			expect(@alimentoTest.to_s()).to eq("Nombre \t Proteinas \t Carbohidratos \t Lipidos \t GEI \t Terreno \n Carne de vaca \t 21.1 \t 0.0 \t 3.1 \t 50.0 \t 164.0")	
 		end
 		it "Prueba de que el terreno utilizado para los kg necesario para un hombre corresponde" do
-			expect(@alimentoTest.terrenoUsado(26.71)).to eq(4380.44)
+			expect(@alimentoTest.terrenoUsado(26.71).round(2)).to eq(4380.44)
 		end
 	end
 end
