@@ -74,5 +74,9 @@ class Alimento
 		
 	def terrenoUsado(kg)
 		return @terreno*kg
+	end
+
+	def impactoAmbiental(kg)
+		return @gei*kg
 	end 
 end
