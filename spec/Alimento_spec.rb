@@ -2,7 +2,7 @@ require_relative '../lib/Alimento'
 
 describe Alimento do
 	before(:all) do
-		@alimentoTest = Alimento.setNombre("Carne de vaca").setProteinas(21.1).setCarboHidratos(0.0).setLipidos(3.1).setGEI(50).setTerreno(164).build()
+		@alimentoTest = Alimento.setNombre("Carne de vaca").setProteinas(21.1).setCarboHidratos(0.0).setLipidos(3.1).setGEI(50.0).setTerreno(164.0).build()
 	end
 	
 	context "Probando que los valores seteados se han seteado correctamente" do
@@ -30,13 +30,19 @@ describe Alimento do
 
 	context "Probando que los metodos funcionan correctamente" do
 		it "Prueba de que la cantidad de kg de dicho alimento a comer para la ingesta recomendada de un hombre corresponde" do
-			expect(@alimentoTest.cantidadNecesaria(3000,54).round(2)).to eq(26.71)
+			kg_nec = @alimentoTest.cantidadNecesaria(3000,54)
+			expect(kg_nec.round(2)).to eq(26.71)
+			#La cantidad necesaría final multiplicado por el valorEnergetico debe devolver el mismo numero de kcal solicitado
+			#expect(kg_nec*@alimentoTest.valorEnergetico).to eq(3000)
 		end
 		it "Prueba de que la cantidad de kg de dicho alimento a comer para la ingesta recomendada de una mujer corresponde" do
-			expect(@alimentoTest.cantidadNecesaria(2300,41).round(2)).to eq(20.48)
+			kg_nec = @alimentoTest.cantidadNecesaria(2300,41)
+			expect(kg_nec.round(2)).to eq(20.48)
+			#La cantidad necesaría final multiplicado por el valorEnergetico debe devolver el mismo numero de kcal solicitado
+			#expect(kg_nec*@alimentoTest.valorEnergetico).to eq(2300)
 		end
 		it "Prueba de que el metodo para formatear el alimento funciona correctamente" do
-			expect(@alimentoTest.to_s()).to eq("Nombre \t Proteinas \t Carbohidratos \t Lipidos \t GEI \t Terreno \n Carne de Vaca \t 21.1 \t 0.0 \t 3.1 \t 50.0 \t 164.0 ")	
+			expect(@alimentoTest.to_s()).to eq("Nombre \t Proteinas \t Carbohidratos \t Lipidos \t GEI \t Terreno \n Carne de vaca \t 21.1 \t 0.0 \t 3.1 \t 50.0 \t 164.0")	
 		end
 	end
 end
