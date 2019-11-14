@@ -20,9 +20,6 @@ describe Alimento do
 		it "Prueba de que el terreno usado para producir el alimento corresponde" do
 			expect(@alimentoTest.terreno).to eq(164.0)
 		end
-		it "Prueba de que el terreno utilizado corresponde con los años en producción" do
-			expect(@alimentoTest.terrenoUsado(5)).to eq(17.0)
-		end
 		it "Prueba de que el valor energetico del alimento corresponde" do
 			expect(@alimentoTest.valorEnergetico.round(1)).to eq(1123.0/10.0)
 		end
@@ -43,6 +40,9 @@ describe Alimento do
 		end
 		it "Prueba de que el metodo para formatear el alimento funciona correctamente" do
 			expect(@alimentoTest.to_s()).to eq("Nombre \t Proteinas \t Carbohidratos \t Lipidos \t GEI \t Terreno \n Carne de vaca \t 21.1 \t 0.0 \t 3.1 \t 50.0 \t 164.0")	
+		end
+		it "Prueba de que el terreno utilizado para los kg necesario para un hombre corresponde" do
+			expect(@alimentoTest.terrenoUsado(26.71)).to eq(4380.44)
 		end
 	end
 end
