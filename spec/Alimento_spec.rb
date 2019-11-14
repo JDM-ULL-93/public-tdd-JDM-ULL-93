@@ -39,10 +39,17 @@ describe Alimento do
 			#expect(kg_nec*@alimentoTest.valorEnergetico).to eq(2300)
 		end
 		it "Prueba de que el metodo para formatear el alimento funciona correctamente" do
-			expect(@alimentoTest.to_s()).to eq("Nombre \t Proteinas \t Carbohidratos \t Lipidos \t GEI \t Terreno \n Carne de vaca \t 21.1 \t 0.0 \t 3.1 \t 50.0 \t 164.0")	
+			expect(@alimentoTest.to_s()).to eq("Nombre \t\t Proteinas \t Carbohidratos \t Lipidos \t Valor Energetico \t GEI \t Terreno \n Carne de vaca \t 21.1 \t\t 0.0 \t\t 3.1 \t\t 112.3 \t\t\t 50.0 \t 164.0")	
 		end
 		it "Prueba de que el terreno utilizado para los kg necesario para un hombre corresponde" do
 			expect(@alimentoTest.terrenoUsado(26.71).round(2)).to eq(4380.44)
 		end
+		it "Prueba de que el impacto medio ambiental para un hombre de entre 20-39 años corresponde" do
+			expect(@alimentoTest.impactoAmbiental(26.71).round(2).to eq(1335.5)
+		end
+		it "Prueba de que el impacto medio ambiental para una mujer de entre 20-39 años corresponde" do
+			expect(@alimentoTest.impactoAmbiental(20.48).round(2).to eq(1024.0)
+		end
+
 	end
 end

@@ -69,7 +69,7 @@ class Alimento
 	end
 
 	def to_s
-		return "Nombre \t Proteinas \t Carbohidratos \t Lipidos \t GEI \t Terreno \n #{@nombre} \t #{@proteinas} \t #{@carbohidratos} \t #{@lipidos} \t #{@gei} \t #{@terreno}"  
+		return "Nombre \t\t Proteinas \t Carbohidratos \t Lipidos \t Valor Energetico \t GEI \t Terreno \n #{@nombre} \t #{@proteinas} \t\t #{@carbohidratos} \t\t #{@lipidos} \t\t #{@valorEnergetico.round(2)} \t\t\t #{@gei} \t #{@terreno}"  
 	end
 		
 	def terrenoUsado(kg)
