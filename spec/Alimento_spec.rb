@@ -52,6 +52,11 @@ describe Alimento do
 		it "Prueba de que el impacto medio ambiental para una mujer de entre 20-39 años corresponde" do
 			expect(@alimentoTest.impactoAmbiental(20.48).round(2)).to eq(1024.0)
 		end
+		it "Prueba de que la suma de 2 alimentos da otro alimento con la suma de todas sus propiedades" do
+			alimentoSuma = @alimentoTest + @alimentoTest2
+			expect(@alimentoSuma.nombre).to eq("Carne de vaca y Nuez")
+			expect(@alimentoSuma.proteinas).to eq(@alimentoTest.proteinas+alimentoTest2.proteinas)
+		end 
 	end
 
 	context "Probando que la incoporación del modulo 'Comparable' funciona correctamente" do
