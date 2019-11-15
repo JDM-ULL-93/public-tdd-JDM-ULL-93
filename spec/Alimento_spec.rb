@@ -54,8 +54,8 @@ describe Alimento do
 		end
 		it "Prueba de que la suma de 2 alimentos da otro alimento con la suma de todas sus propiedades" do
 			alimentoSuma = @alimentoTest + @alimentoTest2
-			expect(@alimentoSuma.nombre).to eq("Carne de vaca y Nuez")
-			expect(@alimentoSuma.proteinas).to eq(@alimentoTest.proteinas+alimentoTest2.proteinas)
+			expect(alimentoSuma.nombre).to eq("Carne de vaca y Nuez")
+			expect(alimentoSuma.proteinas).to eq(@alimentoTest.proteinas+@alimentoTest2.proteinas)
 		end 
 	end
 

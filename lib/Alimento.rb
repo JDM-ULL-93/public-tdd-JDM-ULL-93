@@ -91,4 +91,9 @@ class Alimento
 		return true if (@valorEnergetico == other.valorEnergetico && @proteinas == other.proteinas)
 		return false
 	end
+	
+	def +(other)
+		return nil unless other.instance_of? Alimento
+		return Alimento.new("#{@nombre} y #{other.nombre}",@proteinas + other.proteinas, @carbohidratos + other.carbohidratos, @lipidos + other.lipidos, @gei + other.gei, @terreno + other.terreno)
+	end
 end
