@@ -4,6 +4,7 @@ describe Alimento do
 	before(:all) do
 		@alimentoTest = Alimento.setNombre("Carne de vaca").setProteinas(21.1).setCarbohidratos(0.0).setLipidos(3.1).setGEI(50.0).setTerreno(164.0).build()
 		@alimentoTest2 = Alimento.setNombre("Nuez").setProteinas(20.0).setCarbohidratos(21.0).setLipidos(54.0).setGEI(0.3).setTerreno(7.9).build()
+		@alimentoTest3 = Alimento.setNombre("Cualquier Cosa").setProteinas(21.1).setCarbohidratos(4.0).setLipidos(119.0/90.0).setGEI(50.0).setTerreno(164.0).build()
 	end
 	
 	context "Probando que los valores seteados se han seteado correctamente" do
@@ -59,7 +60,7 @@ describe Alimento do
 		end
 		it "Prueba de que se comprueba que 2 alimentos son iguales o no dependiendo de su valor energetico y las proteinas que otorga" do
 			expect(@alimentoTest == @alimentoTest2).to eq(false)
-			expect(@alimentoTest == @alimentoTest).to eq(true)
+			expect(@alimentoTest == @alimentoTest3).to eq(true)
 		end		
 	end
 end
