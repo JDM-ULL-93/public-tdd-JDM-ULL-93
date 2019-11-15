@@ -53,9 +53,9 @@ describe Alimento do
 		end
 	end
 
-	context "Probando que el modulo 'Comparable' funciona correctamente" do
+	context "Probando que la incoporación del modulo 'Comparable' funciona correctamente" do
 		it "Prueba de que se compara correctamente 2 alimentos por su valor energetico" do
-			expect(@alimentoTest > @alimentoTest2).to eq(true)
+			expect(@alimentoTest > @alimentoTest2).to eq(false)
 		end
 		it "Prueba de que se comprueba que 2 alimentos son iguales o no dependiendo de su valor energetico y las proteinas que otorga" do
 			expect(@alimentoTest == @alimentoTest2).to eq(false)

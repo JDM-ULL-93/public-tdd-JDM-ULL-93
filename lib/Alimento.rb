@@ -42,6 +42,7 @@ class Alimento
 		end
 	end
 
+	include Comparable
 	attr_reader :nombre, :proteinas, :carbohidratos, :lipidos, :gei, :terreno, :valorEnergetico
 	
 	def initialize(nombre,proteinas,carbohidratos,lipidos, gei,terreno)
@@ -79,4 +80,15 @@ class Alimento
 	def impactoAmbiental(kg)
 		return @gei*kg
 	end 
+
+	 def <=>(other)
+		return nil unless other.instance_of? Alimento
+		@valorEnergetico  <=> other.valorEnergetico
+	end
+	
+	def ==(other)
+		return false unless other.instance_of? Alimento
+		return true if (@valorEnergetico == other.valorEnergetico && @proteinas == other.proteinas)
+		return false
+	end
 end
