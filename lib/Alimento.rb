@@ -17,7 +17,7 @@ class Alimento
 			return self
 		end
 		
-		def setCarboHidratos(carboHidratos)
+		def setCarbohidratos(carboHidratos)
 			@@carbohidratos = carboHidratos
 			return self
 		end

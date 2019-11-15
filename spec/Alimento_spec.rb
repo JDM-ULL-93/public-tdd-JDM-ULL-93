@@ -2,7 +2,8 @@ require_relative '../lib/Alimento'
 
 describe Alimento do
 	before(:all) do
-		@alimentoTest = Alimento.setNombre("Carne de vaca").setProteinas(21.1).setCarboHidratos(0.0).setLipidos(3.1).setGEI(50.0).setTerreno(164.0).build()
+		@alimentoTest = Alimento.setNombre("Carne de vaca").setProteinas(21.1).setCarbohidratos(0.0).setLipidos(3.1).setGEI(50.0).setTerreno(164.0).build()
+		@alimentoTest2 = Alimento.setNombre("Nuez").setProteinas(20.0).setCarbohidratos(21.0).setLipidos(54.0).setGEI(0.3).setTerreno(7.9).build()
 	end
 	
 	context "Probando que los valores seteados se han seteado correctamente" do
@@ -50,6 +51,15 @@ describe Alimento do
 		it "Prueba de que el impacto medio ambiental para una mujer de entre 20-39 años corresponde" do
 			expect(@alimentoTest.impactoAmbiental(20.48).round(2)).to eq(1024.0)
 		end
+	end
 
+	context "Probando que el modulo 'Comparable' funciona correctamente" do
+		it "Prueba de que se compara correctamente 2 alimentos por su valor energetico" do
+			expect(@alimentoTest > @alimentoTest2).to eq(true)
+		end
+		it "Prueba de que se comprueba que 2 alimentos son iguales o no dependiendo de su valor energetico y las proteinas que otorga" do
+			expect(@alimentoTest == @alimentoTest2).to eq(false)
+			expect(@alimentoTest == @alimentoTest).to eq(true)
+		end		
 	end
 end
