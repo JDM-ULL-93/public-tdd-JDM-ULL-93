@@ -1,6 +1,7 @@
 require "gema/version"
-require "Alimento"
 require "gema/ListaDobleEnlazada"
+require "Alimento"
+
 module Gema
   class Error < StandardError; end
   # Your code goes here...

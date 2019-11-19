@@ -1,4 +1,4 @@
-require 'ListaDobleEnlazada'
+require 'gema/ListaDobleEnlazada'
 
 describe ListaDobleEnlazada do
 	before(:all) do
