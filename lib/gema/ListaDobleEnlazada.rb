@@ -20,7 +20,7 @@ class ListaDobleEnlazada
 	def insert(nodo)
 		@size = @size + 1
 		if !(nodo.instance_of? Node) then
-			nodo = Node.new(nodo,nil,nodoPrev)
+			nodo = Node.new(nodo,nil,nil)
 		end
 		if (@head == nil) then
 			@head = nodo
