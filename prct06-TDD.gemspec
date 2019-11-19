@@ -1,10 +1,10 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-#require "prct06/TDD/version"
+require "gema/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "prct06-TDD"
-  spec.version       = 0.1
+  spec.version       = Gema::VERSION
   spec.authors       = ["Javier Duque Melguizo"]
   spec.email         = ["alu0101160337@ull.edu.es"]
 

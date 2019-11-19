@@ -1,5 +1,4 @@
 class Alimento
-
 	@@nombre = ""
 	@@proteinas = 0
 	@@carbohidratos = 0

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    prct06-TDD (0.1)
+    prct06-TDD (0.1.0)
 
 GEM
   remote: https://rubygems.org/

@@ -1,4 +1,4 @@
-require_relative '../lib/Alimento'
+require 'Alimento'
 
 describe Alimento do
 	before(:all) do
@@ -56,6 +56,11 @@ describe Alimento do
 			alimentoSuma = @alimentoTest + @alimentoTest2
 			expect(alimentoSuma.nombre).to eq("Carne de vaca y Nuez")
 			expect(alimentoSuma.proteinas).to eq(@alimentoTest.proteinas+@alimentoTest2.proteinas)
+			expect(alimentoSuma.carbohidratos).to eq(@alimentoTest.carbohidratos+@alimentoTest2.carbohidratos)
+			expect(alimentoSuma.lipidos).to eq(@alimentoTest.lipidos+@alimentoTest2.lipidos)
+			expect(alimentoSuma.gei).to eq(@alimentoTest.gei+@alimentoTest2.gei)
+			expect(alimentoSuma.terreno).to eq(@alimentoTest.terreno+@alimentoTest2.terreno)
+			expect(alimentoSuma.valorEnergetico).to eq(@alimentoTest.valorEnergetico+@alimentoTest2.valorEnergetico)
 		end 
 	end
 
