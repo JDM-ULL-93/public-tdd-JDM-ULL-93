@@ -8,6 +8,8 @@ describe ListaDobleEnlazada do
 		@nodo3Test = Node.new("Dato3")
 		@listaEnlazadaTest.insertList(@nodo1Test,@nodo2Test)
 		expect(@listaEnlazadaTest.head.prev).to eq(nil)
+		expect(@listaEnlazadaTest.head.next).to eq(@listaEnlazadaTest.tail)
+		expect(@listaEnlazadaTest.tail.prev).to eq(@listaEnlazadaTest.head)
 		expect(@listaEnlazadaTest.tail.next).to eq(nil)
 	end
 
@@ -49,11 +51,13 @@ describe ListaDobleEnlazada do
 		it "Prueba de que se controla bien la inserción de elementos que no son nodos" do
 			@listaEnlazadaTest.insert("Dato4")
 			expect(@listaEnlazadaTest.tail.value).to eq("Dato4")
+			expect(@listaEnlazadaTest.tail.prev).to eq(@nodo2Test)
 		end
 		it "Prueba  de que se controla bien la inserción de una lista de elementos que no son nodos" do
 			@listaEnlazadaTest.insertList("Dato5","Dato6","Dato7")
 			expect(@listaEnlazadaTest.tail.value).to eq("Dato7")
 			expect(@listaEnlazadaTest.tail.prev.value).to eq("Dato6")
+			expect(@listaEnlazadaTest.tail.prev.prev.value).to eq("Dato5")
 		end
 		
 	end
