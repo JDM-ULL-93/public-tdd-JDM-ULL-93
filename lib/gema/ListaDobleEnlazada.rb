@@ -28,8 +28,8 @@ class ListaDobleEnlazada
 		if(@tail == nil) then
 			@tail = nodo
 		else
-			nodo.prev = @tail
 			@tail.next = nodo
+			nodo.prev = @tail
 			@tail = nodo
 		end
 	end

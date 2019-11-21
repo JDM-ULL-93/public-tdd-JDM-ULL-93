@@ -67,7 +67,7 @@ class Alimento
 
 #	include Comparable
 	attr_reader :nombre
-	attr_accessor :cantidad	
+	attr_accessor :cantidad
 
 	def proteinas
 		return @proteinas*@cantidad
