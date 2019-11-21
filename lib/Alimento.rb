@@ -63,11 +63,20 @@ class Alimento
 			end
 			return result
 		end
+
+		def copy(copy)
+			return Alimento.new(copy.nombre,copy.proteinas,copy.carbohidratos,copy.lipidos,copy.gei,copy.terreno)
+		end
 	end
 
 #	include Comparable
-	attr_reader :nombre
-	attr_accessor :cantidad
+	attr_reader :nombre, :cantidad
+#	attr_accessor :cantidad
+
+	def setCantidad(cantidad)
+	 	@cantidad = cantidad
+		return self
+	end
 
 	def proteinas
 		return @proteinas*@cantidad
