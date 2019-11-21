@@ -5,6 +5,7 @@ class Alimento
 	@@lipidos = 0
 	@@gei = 0
 	@@terreno = 0
+	@@cantidad = 1
 	class << self
 		def setNombre(nombre)
 			@@nombre = nombre
@@ -35,12 +36,15 @@ class Alimento
 			@@terreno = terreno
 			return self
 		end
-
+		def setCantidad(cantidad)
+			@@cantidad = cantidad
+			return self
+		end
 		def build()
 			return Alimento.new(@@nombre,@@proteinas,@@carbohidratos,@@lipidos,@@gei,@@terreno)
 		end
 		
-		def constructFromFile(input)
+		def constructListFromFile(input)
 			result = Array.new()
 			size = input.size/6
 			for i in 0..size-1
@@ -49,11 +53,41 @@ class Alimento
 			end
 			return result
 		end
+
+		def constructHashFromFile(input)
+			result = Hash.new()
+			size = input.size/6
+			for i in 0..size-1
+				alimento = Alimento.new(input[6*i], input[6*i+1].to_f, input[6*i+2].to_f, input[6*i+3].to_f, input[6*i+4].to_f, input[6*i+5].to_f)
+				result.store(input[6*i] , alimento )
+			end
+			return result
+		end
 	end
 
 #	include Comparable
-	attr_reader :nombre, :proteinas, :carbohidratos, :lipidos, :gei, :terreno, :valorEnergetico
-	
+	attr_reader :nombre
+	attr_accessor :cantidad	
+
+	def proteinas
+		return @proteinas*@cantidad
+	end
+	def carbohidratos
+		return @carbohidratos*@cantidad
+	end
+	def lipidos
+		return @lipidos*@cantidad
+	end
+	def gei
+		return @gei*@cantidad
+	end
+	def terreno
+		return @terreno*@cantidad
+	end
+	def valorEnergetico
+		return @valorEnergetico*@cantidad
+	end
+
 	def initialize(nombre,proteinas,carbohidratos,lipidos, gei,terreno)
 		@nombre = nombre
 		@proteinas = proteinas
@@ -63,6 +97,7 @@ class Alimento
 		@terreno = terreno
 
 		@valorEnergetico = (@proteinas * 4 ) + (@carbohidratos * 4) + (@lipidos * 9)
+		@cantidad = 1.0 #En Kg
 	end
 	
 	def cantidadNecesaria(cal_nec, prot_nec)
