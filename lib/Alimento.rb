@@ -39,9 +39,19 @@ class Alimento
 		def build()
 			return Alimento.new(@@nombre,@@proteinas,@@carbohidratos,@@lipidos,@@gei,@@terreno)
 		end
+		
+		def constructFromFile(input)
+			result = Array.new()
+			size = input.size/6
+			for i in 0..size-1
+				alimento = Alimento.new(input[6*i], input[6*i+1].to_f, input[6*i+2].to_f, input[6*i+3].to_f, input[6*i+4].to_f, input[6*i+5].to_f)
+				result.append( alimento )
+			end
+			return result
+		end
 	end
 
-	include Comparable
+#	include Comparable
 	attr_reader :nombre, :proteinas, :carbohidratos, :lipidos, :gei, :terreno, :valorEnergetico
 	
 	def initialize(nombre,proteinas,carbohidratos,lipidos, gei,terreno)
@@ -72,27 +82,27 @@ class Alimento
 		return "Nombre \t\t Proteinas \t Carbohidratos \t Lipidos \t Valor Energetico \t GEI \t Terreno \n #{@nombre} \t #{@proteinas} \t\t #{@carbohidratos} \t\t #{@lipidos} \t\t #{@valorEnergetico.round(2)} \t\t\t #{@gei} \t #{@terreno}"  
 	end
 		
-	def terrenoUsado(kg)
-		return @terreno*kg
-	end
+#	def terrenoUsado(kg)
+#		return @terreno*kg
+#	end
 
-	def impactoAmbiental(kg)
-		return @gei*kg
-	end 
+#	def impactoAmbiental(kg)
+#		return @gei*kg
+#	end 
 
-	 def <=>(other)
-		return nil unless other.instance_of? Alimento
-		@valorEnergetico  <=> other.valorEnergetico
-	end
+#	def <=>(other)
+#		return nil unless other.instance_of? Alimento
+#		@valorEnergetico  <=> other.valorEnergetico
+#	end
 	
-	def ==(other)
-		return false unless other.instance_of? Alimento
-		return true if (@valorEnergetico == other.valorEnergetico && @proteinas == other.proteinas)
-		return false
-	end
+#	def ==(other)
+#		return false unless other.instance_of? Alimento
+#		return true if (@valorEnergetico == other.valorEnergetico && @proteinas == other.proteinas)
+#		return false
+#	end
 	
-	def +(other)
-		return nil unless other.instance_of? Alimento
-		return Alimento.new("#{@nombre} y #{other.nombre}",@proteinas + other.proteinas, @carbohidratos + other.carbohidratos, @lipidos + other.lipidos, @gei + other.gei, @terreno + other.terreno)
-	end
+#	def +(other)
+#		return nil unless other.instance_of? Alimento
+#		return Alimento.new("#{@nombre} y #{other.nombre}",@proteinas + other.proteinas, @carbohidratos + other.carbohidratos, @lipidos + other.lipidos, @gei + other.gei, @terreno + other.terreno)
+#	end
 end
