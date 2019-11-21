@@ -1,11 +1,11 @@
-#require 'Dieta'
+require 'Dieta'
 
-#describe Dieta do
+describe Dieta do
 
-#	before(:all) do
-#		@dietaTest = Dieta.new()
-#	end
-#	context "Probando que los metodos de la clase 'Dieta' funcionan correctamente" do
+	before(:all) do
+		@dietaEspañola = Dieta.new()
+	end
+	context "Probando que los metodos de la clase 'Dieta' funcionan correctamente" do
 		
-#	end
-#end
+	end
+end

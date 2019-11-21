@@ -2,9 +2,9 @@ require 'Alimento'
 
 describe Alimento do
 	before(:all) do
-		@alimentoTest = Alimento.setNombre("Carne de vaca").setProteinas(21.1).setCarbohidratos(0.0).setLipidos(3.1).setGEI(50.0).setTerreno(164.0).build()
-		@alimentoTest2 = Alimento.setNombre("Nuez").setProteinas(20.0).setCarbohidratos(21.0).setLipidos(54.0).setGEI(0.3).setTerreno(7.9).build()
-		@alimentoTest3 = Alimento.setNombre("Cualquier Cosa").setProteinas(21.1).setCarbohidratos(4.0).setLipidos(119.0/90.0).setGEI(50.0).setTerreno(164.0).build()
+		@alimentoTest = Alimento.setNombre("Carne de vaca").setProteinas(21.1).setCarbohidratos(0.0).setLipidos(3.1).setGEI(50.0).setTerreno(164.0).setCantidad(1).build()
+		@alimentoTest2 = Alimento.setNombre("Nuez").setProteinas(20.0).setCarbohidratos(21.0).setLipidos(54.0).setGEI(0.3).setTerreno(7.9).setCantidad(1).build()
+		@alimentoTest3 = Alimento.setNombre("Cualquier Cosa").setProteinas(21.1).setCarbohidratos(4.0).setLipidos(119.0/90.0).setGEI(50.0).setTerreno(164.0).setCantidad(1).build()
 	end
 	
 	context "Probando que los valores seteados se han seteado correctamente" do
@@ -28,10 +28,15 @@ describe Alimento do
 	end
 
 	context "Probando que los metodos funcionan correctamente" do
-		it "Prueba de que 'constructFromFile' funciona correctamente" do
-			result = Alimento.constructFromFile(%W{Carne\sde\svaca 21.1 0.0 3.1 50.0 164.0 Carne\sde\scordero 18.0 0.0 17.0 20.0 185.0 Camarones\s(piscifactoría) 17.6 1.5 0.6 18.0 2.0 Chocolate 5.3 47.0 30.0 2.3 3.4 Salmón\s(piscifactoría) 19.9 0.0 13.6 6.0 3.7 Cerdo 21.5 0.0 6.3 7.6 11.0 Pollo 20.6 0.0 5.6 5.7 7.1 Queso 25.0 1.3 33.0 11.0 41.0 Cerveza 0.5 3.6 0.0 0.24 0.22 Leche\sde\svaca 3.3 4.8 3.2 3.2 8.9 Huevos 13.0 1.1 11.0 4.2 5.7 Café 0.1 0.0 0.0 0.4 0.3 Tofu 8.0 1.9 4.8 2.0 2.2 Lentejas 23.5 52.0 1.4 0.4 3.4 Nuez 20.0 21.0 54.0 0.3 7.9})
+		it "Prueba de que 'constructListFromFile' funciona correctamente" do
+			result = Alimento.constructListFromFile(%W{Carne\sde\svaca 21.1 0.0 3.1 50.0 164.0 Carne\sde\scordero 18.0 0.0 17.0 20.0 185.0 Camarones\s(piscifactoría) 17.6 1.5 0.6 18.0 2.0 Chocolate 5.3 47.0 30.0 2.3 3.4 Salmón\s(piscifactoría) 19.9 0.0 13.6 6.0 3.7 Cerdo 21.5 0.0 6.3 7.6 11.0 Pollo 20.6 0.0 5.6 5.7 7.1 Queso 25.0 1.3 33.0 11.0 41.0 Cerveza 0.5 3.6 0.0 0.24 0.22 Leche\sde\svaca 3.3 4.8 3.2 3.2 8.9 Huevos 13.0 1.1 11.0 4.2 5.7 Café 0.1 0.0 0.0 0.4 0.3 Tofu 8.0 1.9 4.8 2.0 2.2 Lentejas 23.5 52.0 1.4 0.4 3.4 Nuez 20.0 21.0 54.0 0.3 7.9})
 			expect(result[0].nombre).to eq("Carne de vaca")
 			expect(result[result.size()-1].nombre).to eq("Nuez")
+		end
+		it "Prueba de que 'constructHashFromFile' funciona correctamente" do
+			result = Alimento.constructListFromFile(%W{Carne\sde\svaca 21.1 0.0 3.1 50.0 164.0 Carne\sde\scordero 18.0 0.0 17.0 20.0 185.0 Camarones\s(piscifactoría) 17.6 1.5 0.6 18.0 2.0 Chocolate 5.3 47.0 30.0 2.3 3.4 Salmón\s(piscifactoría) 19.9 0.0 13.6 6.0 3.7 Cerdo 21.5 0.0 6.3 7.6 11.0 Pollo 20.6 0.0 5.6 5.7 7.1 Queso 25.0 1.3 33.0 11.0 41.0 Cerveza 0.5 3.6 0.0 0.24 0.22 Leche\sde\svaca 3.3 4.8 3.2 3.2 8.9 Huevos 13.0 1.1 11.0 4.2 5.7 Café 0.1 0.0 0.0 0.4 0.3 Tofu 8.0 1.9 4.8 2.0 2.2 Lentejas 23.5 52.0 1.4 0.4 3.4 Nuez 20.0 21.0 54.0 0.3 7.9})
+			expect(result["Carne de vaca"].nombre).to eq("Carne de vaca")
+			expect(result["Nuez"].nombre).to eq("Nuez")
 		end
 		it "Prueba de que la cantidad de kg de dicho alimento a comer para la ingesta recomendada de un hombre corresponde" do
 			kg_nec = @alimentoTest.cantidadNecesaria(3000,54)
