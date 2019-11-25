@@ -2,7 +2,7 @@
 Node = Struct.new(:value, :next, :prev)
 
 class ListaDobleEnlazada
-
+	include Enumerable
 	attr_reader :size, :head, :tail
  
 	def initialize()
@@ -49,15 +49,19 @@ class ListaDobleEnlazada
 	end
 
 	def to_s()
-		nodo = @head
 		result = ""
+		self.each{|value| result += '-> ' + value + ' <' }
+		result += '-'
+		return result
+	end
+
+	def each
+		nodo = @head
 		loop do
-			result += '-> ' + nodo.value + ' <'
+			yield nodo.value
 			nodo = nodo.next
 			break if(nodo == nil)
 		end
-		result += '-'
-		return result		
 	end
 end
 #end

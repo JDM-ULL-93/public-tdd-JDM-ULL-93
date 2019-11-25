@@ -68,7 +68,7 @@ describe ListaDobleEnlazada do
 		listaEnlazadaTest1 = ListaDobleEnlazada.new()
 		listaEnlazadaTest1.insertList(2,3,4,5,9,6,7,8,1)
 		it "Prueba de que el metodo 'collect' funciona" do
-			expect(@listaEnlazadaTest.collect{"cat"}).to eq(["cat","cat"])
+			expect(listaEnlazadaTest1.collect{"cat"}).to eq(["cat","cat","cat","cat","cat","cat","cat","cat","cat"])
 		end
 		it "Prueba de que el metodo 'select' funciona" do
 			expect(listaEnlazadaTest1.select{ |num| num.even? }).to eq([2,4,6,8])
