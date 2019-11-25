@@ -56,7 +56,7 @@ describe ListaDobleEnlazada do
 			expect(@listaEnlazadaTest.tail.value).to eq("Dato4")
 			expect(@listaEnlazadaTest.tail.prev).to eq(@nodo2Test)
 		end
-		it "Prueba  de que se controla bien la inserción de una lista de elementos que no son nodos" do
+		it "Prueba de que se controla bien la inserción de una lista de elementos que no son nodos" do
 			@listaEnlazadaTest.insertList("Dato5","Dato6","Dato7")
 			expect(@listaEnlazadaTest.tail.value).to eq("Dato7")
 			expect(@listaEnlazadaTest.tail.prev.value).to eq("Dato6")
@@ -64,7 +64,24 @@ describe ListaDobleEnlazada do
 		end
 	end
 
-	context "Probando que la inserción del moodulo 'Enumerable' funciona correctamente" do
-				
+	context "Probando que la inserción del modulo 'Enumerable' funciona correctamente" do
+		listaEnlazadaTest1 = ListaDobleEnlazada.new()
+		listaEnlazadaTest1.insertList(2,3,4,5,9,6,7,8,1)
+		it "Prueba de que el metodo 'collect' funciona" do
+			expect(@listaEnlazadaTest.collect{"cat"}).to eq(["cat","cat"])
+		end
+		it "Prueba de que el metodo 'select' funciona" do
+			expect(listaEnlazadaTest1.select{ |num| num.even? }).to eq([2,4,6,8])
+		end	
+		it "Prueba de que el metodo 'max' funciona" do
+			expect(listaEnlazadaTest1.max).to eq(9)
+		end
+		it "Prueba de que el metodo 'min' funciona" do
+			expect(listaEnlazadaTest1.min).to eq(1)
+		end
+		it "Prueba de que el metodo 'sort' funciona" do
+			expect(listaEnlazadaTest1.sort).to eq([1,2,3,4,5,6,7,8,9])	
+		end
+					
 	end
 end
