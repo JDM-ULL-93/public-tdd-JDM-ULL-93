@@ -69,7 +69,7 @@ class Alimento
 		end
 	end
 
-#	include Comparable
+	include Comparable
 	attr_reader :nombre, :cantidad
 #	attr_accessor :cantidad
 
@@ -134,16 +134,16 @@ class Alimento
 #		return @gei*kg
 #	end 
 
-#	def <=>(other)
-#		return nil unless other.instance_of? Alimento
-#		@valorEnergetico  <=> other.valorEnergetico
-#	end
+	def <=>(other)
+		return nil unless other.instance_of? Alimento
+		@valorEnergetico  <=> other.valorEnergetico
+	end
 	
-#	def ==(other)
-#		return false unless other.instance_of? Alimento
-#		return true if (@valorEnergetico == other.valorEnergetico && @proteinas == other.proteinas)
-#		return false
-#	end
+	def ==(other)
+		return false unless other.instance_of? Alimento
+		return true if (@valorEnergetico == other.valorEnergetico && @proteinas == other.proteinas)
+		return false
+	end
 	
 #	def +(other)
 #		return nil unless other.instance_of? Alimento
