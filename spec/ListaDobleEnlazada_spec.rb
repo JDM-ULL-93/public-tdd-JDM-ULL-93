@@ -35,7 +35,7 @@ describe ListaDobleEnlazada do
 
 	context "Probando que los metodos funcionan" do
 		it "Prueba de que 'to_s' funciona" do
-			expect(@listaEnlazadaTest.to_s()).to eq("-> Dato1 <-> Dato2")
+			expect(@listaEnlazadaTest.to_s()).to eq("-> Dato1 <-> Dato2 <-")
 		end
 		it "Prueba de que se 'insert' funciona" do
 			@listaEnlazadaTest.insert(@nodo3Test)

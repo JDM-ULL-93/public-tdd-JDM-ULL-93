@@ -47,6 +47,18 @@ class ListaDobleEnlazada
 		@head.prev = nil
 		return nodo
 	end
+
+	def to_s()
+		nodo = @head
+		result = ""
+		loop do
+			result += '-> ' + nodo.value + ' <'
+			nodo = nodo.next
+			break if(nodo == nil)
+		end
+		result += '-'
+		return result		
+	end
 end
 #end
 
