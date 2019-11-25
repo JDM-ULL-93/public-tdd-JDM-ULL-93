@@ -33,7 +33,10 @@ describe ListaDobleEnlazada do
 		end
 	end
 
-	context "Probando que los metodos 'insert','extract_head','extract_tail', funcionan" do
+	context "Probando que los metodos funcionan" do
+		it "Prueba de que 'to_s' funciona" do
+			expect(@listaEnlazadaTest.to_s()).to eq("-> Dato1 <-> Dato2")
+		end
 		it "Prueba de que se 'insert' funciona" do
 			@listaEnlazadaTest.insert(@nodo3Test)
 			expect(@listaEnlazadaTest.tail).to eq(@nodo3Test)
@@ -59,6 +62,9 @@ describe ListaDobleEnlazada do
 			expect(@listaEnlazadaTest.tail.prev.value).to eq("Dato6")
 			expect(@listaEnlazadaTest.tail.prev.prev.value).to eq("Dato5")
 		end
-		
+	end
+
+	context "Probando que la inserción del moodulo 'Enumerable' funciona correctamente" do
+				
 	end
 end
