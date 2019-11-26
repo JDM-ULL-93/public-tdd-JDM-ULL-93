@@ -1,5 +1,4 @@
 require 'Plato'
-require 'Dieta'
 
 describe Plato do
 	before(:all) do
