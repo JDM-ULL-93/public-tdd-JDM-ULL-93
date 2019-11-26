@@ -38,6 +38,7 @@ class ListaDobleEnlazada
 		nodo = @tail
 		@tail = @tail.prev
 		@tail.next = nil
+		extracted(nodo)
 		return nodo
 	end
 	
@@ -45,12 +46,16 @@ class ListaDobleEnlazada
 		nodo = @head
 		@head = @head.next
 		@head.prev = nil
+		extracted(nodo)
 		return nodo
+	end
+	
+	def extracted(nodo)
 	end
 
 	def to_s()
 		result = ""
-		self.each{|value| result += '-> ' + value + ' <' }
+		self.each{|value| result += "-> " + value.to_s() + " <" }
 		result += '-'
 		return result
 	end

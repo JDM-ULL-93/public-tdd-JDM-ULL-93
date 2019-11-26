@@ -12,19 +12,19 @@ describe Plato do
 			expect(@platoTest.nombre).to eq("PlatoTest")
 		end
 		it "Probando que el total de kilogramos del plato corresponden" do
-			expect(@platoTest.peso).to eq(0.6) #en kg
+			expect(@platoTest.peso).to eq(60) #en g
 		end
 		it "Probando que el total de gramos de carbohidratos del plato corresponden" do
-			expect(@platoTest.totalCarbohidratos).to eq(0.62) #0.62g no 0.62kg
+			expect(@platoTest.totalCarbohidratos.round(2)).to eq(0.62) #0.62g no 0.62kg
 		end
 		it "Probando que el total de gramos de proteinas del plato corresponden" do
-			expect(@platoTest.totalProteinas).to eq(11.38)
+			expect(@platoTest.totalProteinas.round(2)).to eq(11.38)
 		end
 		it "Probando que el total de gramos de lipidos/grasas del plato corresponden" do
-			expect(@platoTest.totalLipidos).to eq(7.53)
+			expect(@platoTest.totalLipidos.round(2)).to eq(7.53)
 		end
 		it "Probando que el porcentaje de carbohidratos corresponde" do
-			expect(@platoTest.porcentajeCarbohidratos.round(2)).to eq(3.18)
+			expect(@platoTest.porcentajeCarbohidratos.round(2)).to eq(3.17)
 		end
 		it "Probando que el % de proteinas corresponde" do
 			expect(@platoTest.porcentajeProteinas.round(2)).to eq(58.27)
@@ -33,13 +33,14 @@ describe Plato do
 			expect(@platoTest.porcentajeLipidos.round(2)).to eq(38.56)
 		end
 		it "Probando que el valor calórico total(v.c.t) corresponde" do
-			expect(@platoTest.vct).to eq(115.77)#en kcal
+			expect(@platoTest.totalVCT.round(2)).to eq(115.77)#en kcal
 		end
 	end
 
 	context "Probando que los metodos de la instancia funciona correctamente" do
-#		it "Probando que el metodo 'to_s' funciona correctamente" do
+		it "Probando que el metodo 'to_s' funciona correctamente" do
+			puts @platoTest
 #			expect(@platoTest.to_s()).to eq("PlatoTest: -")
-#		end
+		end
 	end
 end
