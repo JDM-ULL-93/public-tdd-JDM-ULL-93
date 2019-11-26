@@ -45,5 +45,13 @@ class Plato < ListaDobleEnlazada
 			@porcentajeProteinas = @totalProteinas / totalNutrientes * 100
 			@porcentajeCarbohidratos = @totalCarbohidratos / totalNutrientes * 100
 			@porcentajeLipidos = @totalLipidos / totalNutrientes * 100
+	end
+
+	def to_s
+		result = ""
+		self.each{|alimento| result += "#{alimento.nombre}(#{alimento.cantidad*100} g), " }
+		result = result[0...-2]
+		result += ". #{@porcentajeProteinas.round(2)}% Proteinas, #{@porcentajeCarbohidratos.round(2)}% Carbohidratos, #{@porcentajeLipidos.round(2)}% Lipidos, #{@totalVCT.round(2)} kcal"
+		return result
 	end 
 end
