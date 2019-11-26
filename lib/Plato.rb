@@ -16,8 +16,8 @@ class Plato < ListaDobleEnlazada
 		@porcentajeLipidos = 0
 		@totalVCT = 0
 	end	
-	def insert(value)
-		method(:insert).super_method.call(value) #Llama al metodo insert de padre		
+	def inserted(value)
+		#method(:insert).super_method.call(value) #Llama al metodo insert de padre		
 		
 		alimento = value
 		if( value.instance_of? Node) then alimento = value.value end

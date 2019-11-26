@@ -32,6 +32,9 @@ class ListaDobleEnlazada
 			nodo.prev = @tail
 			@tail = nodo
 		end
+		inserted(nodo)
+	end
+	def inserted(nodo)
 	end
 	
 	def extract_tail()
