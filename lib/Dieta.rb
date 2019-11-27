@@ -10,23 +10,13 @@ class Dieta < ListaDobleEnlazada
 	
 	def emisiones
 		result = 0
-		nodo = head
-		loop do	
-			result = result+nodo.value.gei
-			nodo = nodo.next
-			break if (nodo == nil)
-		end
+		self.each(){|value| result+= value.gei }
 		return result
 	end 
 	
 	def terreno
 		result = 0
-		nodo = head
-		loop do	
-			result = result+nodo.value.terreno
-			nodo = nodo.next
-			break if (nodo == nil)
-		end
+		self.each(){|value| result+= value.terreno }
 		return result
 
 	end 	

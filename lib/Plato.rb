@@ -1,9 +1,10 @@
 require 'gema'
 
 class Plato < ListaDobleEnlazada
-
+	
+	include Comparable
 	attr_reader :nombre, :peso, :totalProteinas, :porcentajeProteinas, :totalCarbohidratos, :porcentajeCarbohidratos, :totalLipidos, :porcentajeLipidos, :totalVCT		
-
+	
 	def initialize(nombre)
 		super()
 		@nombre = nombre
@@ -54,4 +55,9 @@ class Plato < ListaDobleEnlazada
 		result += ". #{@porcentajeProteinas.round(2)}% Proteinas, #{@porcentajeCarbohidratos.round(2)}% Carbohidratos, #{@porcentajeLipidos.round(2)}% Lipidos, #{@totalVCT.round(2)} kcal"
 		return result
 	end 
+	
+	def <=>(other)
+		return nil unless other.instance_of? Plato
+		@totalVCT  <=> other.totalVCT
+	end
 end

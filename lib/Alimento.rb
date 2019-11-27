@@ -123,7 +123,7 @@ class Alimento
 	end
 
 	def to_s
-		return "Nombre \t\t Proteinas \t Carbohidratos \t Lipidos \t Valor Energetico \t GEI \t Terreno \n #{@nombre} \t #{@proteinas} \t\t #{@carbohidratos} \t\t #{@lipidos} \t\t #{@valorEnergetico.round(2)} \t\t\t #{@gei} \t #{@terreno}"  
+		return "[Nombre:#{@nombre}, Peso:#{@cantidad} kg, Proteinas:#{proteinas.round(2)} g, Carbohidratos:#{carbohidratos.round(2)} g, Lipidos:#{lipidos.round(2)} g, Valor Energetico:#{valorEnergetico.round(2)} kcal, Emisiones: #{gei.round(2)} kgCO2, Terreno Usado:#{terreno.round(2)} m^2]"  
 	end
 		
 #	def terrenoUsado(kg)
@@ -133,17 +133,18 @@ class Alimento
 #	def impactoAmbiental(kg)
 #		return @gei*kg
 #	end 
-
+#require 'pry'
 	def <=>(other)
+#		binding.pry
 		return nil unless other.instance_of? Alimento
-		@valorEnergetico  <=> other.valorEnergetico
+		valorEnergetico  <=> other.valorEnergetico
 	end
 	
-	def ==(other)
-		return false unless other.instance_of? Alimento
-		return true if (@valorEnergetico == other.valorEnergetico && @proteinas == other.proteinas)
-		return false
-	end
+#	def ==(other)
+#		return false unless other.instance_of? Alimento
+#		return true if (@valorEnergetico == other.valorEnergetico && @proteinas == other.proteinas)
+#		return false
+#	end
 	
 #	def +(other)
 #		return nil unless other.instance_of? Alimento

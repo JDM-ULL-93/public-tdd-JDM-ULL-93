@@ -3,7 +3,17 @@ require 'Plato'
 describe Plato do
 	before(:all) do
 		@platoTest = Plato.new("PlatoTest")
-		@platoTest.insertList(Alimento.copy(Dieta.alimentos["Carne de vaca"]).setCantidad(0.3),Alimento.copy(Dieta.alimentos["Cerveza"]).setCantidad(0.1),Alimento.copy(Dieta.alimentos["Queso"]).setCantidad(0.2))
+		@platoTest.insertList(Alimento.copy(Dieta.alimentos["Carne de vaca"]).setCantidad(0.3),Alimento.copy(Dieta.alimentos["Cerveza"]).setCantidad(0.1), Alimento.copy(Dieta.alimentos["Queso"]).setCantidad(0.2))
+		@platoTest2 = Plato.new("Plato dieta Española")
+		@platoTest2.insertList(Alimento.copy(Dieta.alimentos["Salmón (piscifactoría)"]).setCantidad(0.2), Alimento.copy(Dieta.alimentos["Huevos"]).setCantidad(0.4))
+		@platoTest3 = Plato.new("Plato dieta Vasca")
+		@platoTest3.insertList(Alimento.copy(Dieta.alimentos["Salmón (piscifactoría)"]).setCantidad(0.2), Alimento.copy(Dieta.alimentos["Camarones (piscifactoría)"]).setCantidad(0.4))
+		@platoTest4 = Plato.new("Plato dieta Vegetaria")
+		@platoTest4.insertList(Alimento.copy(Dieta.alimentos["Carne de vaca"]).setCantidad(0.3),Alimento.copy(Dieta.alimentos["Cerveza"]).setCantidad(0.1),Alimento.copy(Dieta.alimentos["Queso"]).setCantidad(0.2),Alimento.copy(Dieta.alimentos["Leche de vaca"]))
+		@platoTest5 = Plato.new("Plato dieta Vegetariana")
+		@platoTest5.insertList(Alimento.copy(Dieta.alimentos["Queso"]).setCantidad(0.4), Alimento.copy(Dieta.alimentos["Tofu"]).setCantidad(0.5))
+		@platoTest6 = Plato.new("Plato dieta Locura Por Carne")
+		@platoTest6.insertList(Alimento.copy(Dieta.alimentos["Carne de vaca"]).setCantidad(0.3),Alimento.copy(Dieta.alimentos["Cerveza"]).setCantidad(0.15),Alimento.copy(Dieta.alimentos["Carne de cordero"]).setCantidad(0.26))
 	end
 	
 	context "Probando que las propiedades de la instancia se calculan correctamente y corresponden con lo esperado" do
@@ -39,7 +49,27 @@ describe Plato do
 	context "Probando que los metodos de la instancia funciona correctamente" do
 		it "Probando que el metodo 'to_s' funciona correctamente" do
 			puts @platoTest
-#			expect(@platoTest.to_s()).to eq("PlatoTest: -")
 		end
+	end
+	
+	context "Probando que la incorporación del modulo 'Comparable' funciona correctamente" do
+		it "Probando que se es mayor cuando corresponde" do
+			expect(@platoTest2 > @platoTest3).to eq(true)
+		end
+		it "Probando que se es menor cuando corresponde" do
+			expect(@platoTest4 < @platoTest5).to eq(true)
+		end
+		it "Probando que no es igual cuando corresponde" do
+			expect(@platoTest != @platoTest2).to eq(true)
+			expect(@platoTest2 == @platoTest).to eq(false)
+		end
+		it "Probando que se es mayor o igual cuando corresponde" do
+			expect(@platoTest6 >= @platoTest3).to eq(true)
+		end
+		it "Probando que es menor o igual cuando corresponde" do
+			expect(@platoTest3 <= @platoTest2).to eq(true)
+		end
+		
+		
 	end
 end

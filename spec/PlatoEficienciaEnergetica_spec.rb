@@ -1,4 +1,5 @@
 require 'PlatoEficienciaEnergetica'
+require 'pry'
 
 describe PlatoEficienciaEnergetica do
 	before(:all) do
@@ -18,6 +19,39 @@ describe PlatoEficienciaEnergetica do
 	context "Probando que los metodos de la instancia funcionan correctamente" do
 		it "Probando que el metodo 'to_s' funciona" do
 			puts @platoTest
+#			binding.pry
+		end
+	end
+
+	context "Probando que la clase del objeto,el tipo del objeto y su jerarquia corresponde(prueba adhoc pra Practica 8)" do
+		it "Probando que la clase del objeto corresponde" do
+			expect(@platoTest.class).to eq(PlatoEficienciaEnergetica)			
+		end
+		it "Probando que el tipo del objeto corresponde" do
+			expect(@platoTest.instance_of?PlatoEficienciaEnergetica).to eq(true)
+			expect(@platoTest.instance_of?Plato).to eq(false)			
+		end
+		it "Probando que la jerarquia corresponde(la clase es hija de Plato)" do
+			expect(@platoTest.class.superclass).to eq(Plato)
+			expect(@platoTest.class.superclass.superclass).to eq(ListaDobleEnlazada)
+		end
+	end
+		
+	context "Probando que el modulo 'Enumerable' ha sido incorporado de forma exitosa a la clase" do
+		it "Probando que el metodo 'collect' funciona correctamente" do
+			expect(@platoTest.collect{|alimento| alimento.nombre}).to eq(["Carne de vaca","Cerveza","Queso"])
+		end
+		it "Probando que el metodo 'select' funciona correctamente" do
+			expect(@platoTest.select{|alimento| alimento.nombre == "Cerveza"}).to eq([@platoTest.tail.prev.value])
+		end
+		it "Probando que el metodo 'min' funciona correctamente" do
+			expect(@platoTest.min()).to eq(@platoTest.head.next.value)
+		end
+		it "Probando que el metodo 'max' funciona correctamente" do
+			expect(@platoTest.max()).to eq(@platoTest.tail.value)
+		end
+		it "Probando que el metodo 'sort' funciona correctamente" do
+			expect(@platoTest.sort()).to eq([@platoTest.head.next.value,@platoTest.head.value, @platoTest.tail.value])
 		end
 	end
 	

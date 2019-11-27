@@ -27,6 +27,6 @@ class PlatoEficienciaEnergetica < Plato
 	end
 
 	def to_s
-		return method(:to_s).super_method.call + " .#{@totalEmisiones} kgCO2, #{@totalTerreno} m^2"
+		return method(:to_s).super_method.call + " . #{@totalEmisiones} kgCO2, #{@totalTerreno} m^2"
 	end
 end
