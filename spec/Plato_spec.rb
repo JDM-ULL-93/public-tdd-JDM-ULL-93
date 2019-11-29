@@ -14,6 +14,8 @@ describe Plato do
 		@platoTest5.insertList(Alimento.copy(Dieta.alimentos["Queso"]).setCantidad(0.4), Alimento.copy(Dieta.alimentos["Tofu"]).setCantidad(0.5))
 		@platoTest6 = Plato.new("Plato dieta Locura Por Carne")
 		@platoTest6.insertList(Alimento.copy(Dieta.alimentos["Carne de vaca"]).setCantidad(0.3),Alimento.copy(Dieta.alimentos["Cerveza"]).setCantidad(0.15),Alimento.copy(Dieta.alimentos["Carne de cordero"]).setCantidad(0.26))
+		@listaPlatos = ListaDobleEnlazada.new()
+		@listaPlatos.insertList(@platoTest2,@platoTest3)
 	end
 	
 	context "Probando que las propiedades de la instancia se calculan correctamente y corresponden con lo esperado" do
@@ -69,7 +71,9 @@ describe Plato do
 		it "Probando que es menor o igual cuando corresponde" do
 			expect(@platoTest3 <= @platoTest2).to eq(true)
 		end
-		
+		it "Probando que la lista de platos se enumeran correctamente" do
+			expect(@listaPlatos.sort()).to eq([@platoTest3,@platoTest2])
+		end
 		
 	end
 end
