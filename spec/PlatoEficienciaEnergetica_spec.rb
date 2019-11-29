@@ -29,7 +29,7 @@ describe PlatoEficienciaEnergetica do
 		end
 		it "Probando que el tipo del objeto corresponde" do
 			expect(@platoTest.instance_of?PlatoEficienciaEnergetica).to eq(true)
-			expect(@platoTest.instance_of?Plato).to eq(false)			
+			expect(@platoTest.kind_of?Plato).to eq(true)			
 		end
 		it "Probando que la jerarquia corresponde(la clase es hija de Plato)" do
 			expect(@platoTest.class.superclass).to eq(Plato)
