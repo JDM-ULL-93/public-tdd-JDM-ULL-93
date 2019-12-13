@@ -70,7 +70,7 @@ class Alimento
 	end
 
 	include Comparable
-	attr_reader :nombre, :cantidad
+	attr_reader :nombre, :cantidad, :huellaNutricional
 #	attr_accessor :cantidad
 
 	def setCantidad(cantidad)
@@ -107,6 +107,17 @@ class Alimento
 
 		@valorEnergetico = (@proteinas * 4 ) + (@carbohidratos * 4) + (@lipidos * 9)
 		@cantidad = 1.0 #En Kg
+		impactoEnergia = case @valorEnergetico
+			when 0..67 then 1
+			when 670..83 then 2
+			else 3
+		end
+		impactoHuellaDeCarbono = case @gei
+			when 0..80 then 1
+			when 80..120 then 2
+			else 3
+		end
+		@huellaNutricional = (impactoEnergia + impactoHuellaDeCarbono)/2 
 	end
 	
 	def cantidadNecesaria(cal_nec, prot_nec)

@@ -1,9 +1,22 @@
 require 'gema'
 
 class Plato < ListaDobleEnlazada
-	
+		
+	module CompareMode
+		ByVCT = 1
+		ByHuellaNutricional = 2
+	end
+	@@compareMode = CompareMode::ByVCT
+	def Plato.setCompareMode(mode)
+		@@compareMode = mode
+	end
+
 	include Comparable
 	attr_reader :nombre, :peso, :totalProteinas, :porcentajeProteinas, :totalCarbohidratos, :porcentajeCarbohidratos, :totalLipidos, :porcentajeLipidos, :totalVCT		
+	
+	def huellaNutricional()
+		return @huellaNutricional/self.size()
+	end
 	
 	def initialize(nombre)
 		super()
@@ -16,6 +29,7 @@ class Plato < ListaDobleEnlazada
 		@totalLipidos = 0
 		@porcentajeLipidos = 0
 		@totalVCT = 0
+		@huellaNutricional = 0
 	end	
 	def inserted(value)
 		#method(:insert).super_method.call(value) #Llama al metodo insert de padre		
@@ -31,6 +45,7 @@ class Plato < ListaDobleEnlazada
 			@porcentajeProteinas = @totalProteinas / totalNutrientes * 100
 			@porcentajeCarbohidratos = @totalCarbohidratos / totalNutrientes * 100
 			@porcentajeLipidos = @totalLipidos / totalNutrientes * 100
+			@huellaNutricional += alimento.huellaNutricional
 		
 	end
 	
@@ -46,6 +61,7 @@ class Plato < ListaDobleEnlazada
 			@porcentajeProteinas = @totalProteinas / totalNutrientes * 100
 			@porcentajeCarbohidratos = @totalCarbohidratos / totalNutrientes * 100
 			@porcentajeLipidos = @totalLipidos / totalNutrientes * 100
+			@huellaNutricional -= alimento.huellaNutricional
 	end
 
 	def to_s
@@ -58,6 +74,10 @@ class Plato < ListaDobleEnlazada
 	
 	def <=>(other)
 		return nil unless other.instance_of? Plato
-		@totalVCT  <=> other.totalVCT
+		if(@@compareMode == CompareMode::ByVCT) then
+			@totalVCT  <=> other.totalVCT 
+		else
+			self.huellaNutricional <=> other.huellaNutricional
+		end
 	end
 end

@@ -23,7 +23,10 @@ describe Alimento do
 			expect(@alimentoTest.terreno).to eq(164.0)
 		end
 		it "Prueba de que el valor energetico del alimento corresponde" do
-			expect(@alimentoTest.valorEnergetico.round(1)).to eq(1123.0/10.0)
+			expect(@alimentoTest.valorEnergetico.round(1)).to eq(112.3)
+		end
+		it "Prueba de que la huellaNutricional del alimento corresponde" do
+			expect(@alimentoTest.huellaNutricional.to_i()).to eq(2)
 		end
 	end
 

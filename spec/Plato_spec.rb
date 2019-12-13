@@ -2,6 +2,7 @@ require 'Plato'
 
 describe Plato do
 	before(:all) do
+		Plato.setCompareMode(Plato::CompareMode::ByVCT)
 		@platoTest = Plato.new("PlatoTest")
 		@platoTest.insertList(Alimento.copy(Dieta.alimentos["Carne de vaca"]).setCantidad(0.3),Alimento.copy(Dieta.alimentos["Cerveza"]).setCantidad(0.1), Alimento.copy(Dieta.alimentos["Queso"]).setCantidad(0.2))
 		@platoTest2 = Plato.new("Plato dieta Española")
@@ -14,8 +15,10 @@ describe Plato do
 		@platoTest5.insertList(Alimento.copy(Dieta.alimentos["Queso"]).setCantidad(0.4), Alimento.copy(Dieta.alimentos["Tofu"]).setCantidad(0.5))
 		@platoTest6 = Plato.new("Plato dieta Locura Por Carne")
 		@platoTest6.insertList(Alimento.copy(Dieta.alimentos["Carne de vaca"]).setCantidad(0.3),Alimento.copy(Dieta.alimentos["Cerveza"]).setCantidad(0.15),Alimento.copy(Dieta.alimentos["Carne de cordero"]).setCantidad(0.26))
+		@platoTest7 = Plato.new("PlatoMaxAdHoc")
+		@platoTest7.insertList(Alimento.copy(Dieta.alimentos["Carne de vaca"]).setCantidad(10),Alimento.copy(Dieta.alimentos["Cerveza"]).setCantidad(10))
 		@listaPlatos = ListaDobleEnlazada.new()
-		@listaPlatos.insertList(@platoTest2,@platoTest3)
+		@listaPlatos.insertList(@platoTest,@platoTest2,@platoTest3,@platoTest4,@platoTest5,@platoTest6,@platoTest7)
 	end
 	
 	context "Probando que las propiedades de la instancia se calculan correctamente y corresponden con lo esperado" do
@@ -46,6 +49,9 @@ describe Plato do
 		it "Probando que el valor calórico total(v.c.t) corresponde" do
 			expect(@platoTest.totalVCT.round(2)).to eq(115.77)#en kcal
 		end
+		it "Probando que la huella nutricional media de todos los alimentos del plato corresponde" do
+			expect(@platoTest.huellaNutricional).to eq(1)
+		end
 	end
 
 	context "Probando que los metodos de la instancia funciona correctamente" do
@@ -72,8 +78,26 @@ describe Plato do
 			expect(@platoTest3 <= @platoTest2).to eq(true)
 		end
 		it "Probando que la lista de platos se enumeran correctamente" do
-			expect(@listaPlatos.sort()).to eq([@platoTest3,@platoTest2])
+			#Ordenado de menor a mayor
+			expect(@listaPlatos.sort()).to eq([@platoTest3,@platoTest6,@platoTest2,@platoTest,@platoTest4,@platoTest5,@platoTest7])
+		end		
+	end
+
+	context "Prueba ad hoc para Practica 9" do
+		it "Prueba de que en una lista de platos se devuelve correctamente el de mayor huellaNutricional" do
+			Plato.setCompareMode(Plato::CompareMode::ByHuellaNutricional)
+			puts @listaPlatos.max().huellaNutricional
 		end
-		
+		it "Prueba ad hoc para practica 9 sobre aumentar una lista de precios en proporcion a la diferencia entre el plato y el plato de mayor huella nutricional" do
+			Plato.setCompareMode(Plato::CompareMode::ByHuellaNutricional)
+			listaPrecios = [7.5, 5.6, 10.0, 8.6, 9.5, 6.0,15.0]
+			platoMax = @listaPlatos.max()
+			count = 0
+			@listaPlatos.each do |plato|
+				listaPrecios[count] = (platoMax.huellaNutricional/plato.huellaNutricional) * listaPrecios[count].to_f()
+				count = count + 1
+			end
+			expect(listaPrecios).to eq([15.0,5.6,10.0,17.2,9.5,12.0,30.0])
+		end 
 	end
 end
