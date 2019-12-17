@@ -86,14 +86,15 @@ describe Plato do
 	context "Prueba ad hoc para Practica 9" do
 		it "Prueba de que en una lista de platos se devuelve correctamente el de mayor huellaNutricional" do
 			Plato.setCompareMode(Plato::CompareMode::ByHuellaNutricional)
-			puts @listaPlatos.max().huellaNutricional
+			platoMax = @listaPlatos.max()
+			expect(platoMax).to eq(@platoTest2)
 		end
 		it "Prueba ad hoc para practica 9 sobre aumentar una lista de precios en proporcion a la diferencia entre el plato y el plato de mayor huella nutricional" do
 			Plato.setCompareMode(Plato::CompareMode::ByHuellaNutricional)
 			listaPrecios = [7.5, 5.6, 10.0, 8.6, 9.5, 6.0,15.0]
 			platoMax = @listaPlatos.max()
 			count = 0
-			@listaPlatos.each do |plato|
+			@listaPlatos.collect do |plato|
 				listaPrecios[count] = (platoMax.huellaNutricional/plato.huellaNutricional) * listaPrecios[count].to_f()
 				count = count + 1
 			end
