@@ -1,4 +1,4 @@
-require 'Plato'
+require 'gema'
 
 describe Plato do
 	before(:all) do

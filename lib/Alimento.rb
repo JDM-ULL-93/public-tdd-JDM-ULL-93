@@ -99,6 +99,7 @@ class Alimento
 		return self
 	end
 
+
 	#Recupera la cantidad de proteinas, en g, del alimento (relativo a la cantidad del alimento).
 	def proteinas
 		return @proteinas*@cantidad

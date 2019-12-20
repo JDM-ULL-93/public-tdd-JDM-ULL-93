@@ -1,4 +1,4 @@
-require 'PlatoEficienciaEnergetica'
+require 'gema'
 require 'pry'
 
 describe PlatoEficienciaEnergetica do

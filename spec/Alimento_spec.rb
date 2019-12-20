@@ -1,4 +1,4 @@
-require 'Alimento'
+require 'gema'
 
 describe Alimento do
 	before(:all) do
