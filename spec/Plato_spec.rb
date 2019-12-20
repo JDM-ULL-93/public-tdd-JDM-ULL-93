@@ -93,12 +93,10 @@ describe Plato do
 			Plato.setCompareMode(Plato::CompareMode::ByHuellaNutricional)
 			listaPrecios = [7.5, 5.6, 10.0, 8.6, 9.5, 6.0,15.0]
 			platoMax = @listaPlatos.max()
-			count = 0
-			@listaPlatos.collect do |plato|
-				listaPrecios[count] = (platoMax.huellaNutricional/plato.huellaNutricional) * listaPrecios[count].to_f()
-				count = count + 1
+			listaPreciosAct = listaPrecios.each_with_index.collect do |precio,index|
+				precio = (platoMax.huellaNutricional/@listaPlatos[index].huellaNutricional) * precio.to_f()
 			end
-			expect(listaPrecios).to eq([15.0,5.6,10.0,17.2,9.5,12.0,30.0])
+			expect(listaPreciosAct).to eq([15.0,5.6,10.0,17.2,9.5,12.0,30.0])
 		end 
 	end
 end

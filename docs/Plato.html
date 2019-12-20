@@ -360,13 +360,13 @@
 
         <div class="method-description">
           
-          
+          <p>Implementación del metodo &#39;Comparable::&lt;=&gt;&#39; para implementación con clase <a href="Plato.html"><code>Plato</code></a></p>
           
           
 
           
           <div class="method-source-code" id="3C-3D-3E-source">
-            <pre><span class="ruby-comment"># File lib/Plato.rb, line 90</span>
+            <pre><span class="ruby-comment"># File lib/Plato.rb, line 92</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
         <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">instance_of?</span> <span class="ruby-constant">Plato</span>
         <span class="ruby-keyword">if</span>(<span class="ruby-identifier">@@compareMode</span> <span class="ruby-operator">==</span> <span class="ruby-constant">CompareMode</span><span class="ruby-operator">::</span><span class="ruby-constant">ByVCT</span>) <span class="ruby-keyword">then</span>
@@ -528,13 +528,13 @@
 
         <div class="method-description">
           
-          
+          <p>Devuelve el objeto <a href="Plato.html"><code>Plato</code></a> formateado en un string endentible para un ser humano</p>
           
           
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/Plato.rb, line 82</span>
+            <pre><span class="ruby-comment"># File lib/Plato.rb, line 83</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
         <span class="ruby-identifier">result</span> = <span class="ruby-string">&quot;&quot;</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">alimento</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;#{alimento.nombre}(#{alimento.cantidad*100} g), &quot;</span> }

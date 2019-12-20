@@ -236,13 +236,15 @@
 
         <div class="method-description">
           
-          
+          <p>Metodo de &#39;Enumerable&#39; implementado para que sea capaz de trabajar con objetos de tipo LsitaDobleEnlazada</p>
+
+<pre>@param [Clausure] Bloque_Aridad1 Recibe un bloque que espera como argumento cada elemento de la lista</pre>
           
           
 
           
           <div class="method-source-code" id="each-source">
-            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 66</span>
+            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 81</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each</span>
         <span class="ruby-identifier">nodo</span> = <span class="ruby-ivar">@head</span>
         <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
@@ -274,13 +276,13 @@
 
         <div class="method-description">
           
-          
+          <p>Retorna la cabeza de la lista del objeto <a href="ListaDobleEnlazada.html"><code>ListaDobleEnlazada</code></a> y la elimina de esta.</p>
           
           
 
           
           <div class="method-source-code" id="extract_head-source">
-            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 48</span>
+            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extract_head</span>()
         <span class="ruby-identifier">nodo</span> = <span class="ruby-ivar">@head</span>
         <span class="ruby-ivar">@head</span> = <span class="ruby-ivar">@head</span>.<span class="ruby-identifier">next</span>
@@ -311,13 +313,13 @@
 
         <div class="method-description">
           
-          
+          <p>Retorna la cola de la lista del objeto <a href="ListaDobleEnlazada.html"><code>ListaDobleEnlazada</code></a> y la elimina de esta.</p>
           
           
 
           
           <div class="method-source-code" id="extract_tail-source">
-            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 40</span>
+            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extract_tail</span>()
         <span class="ruby-identifier">nodo</span> = <span class="ruby-ivar">@tail</span>
         <span class="ruby-ivar">@tail</span> = <span class="ruby-ivar">@tail</span>.<span class="ruby-identifier">prev</span>
@@ -348,13 +350,15 @@
 
         <div class="method-description">
           
-          
+          <p>Placeholder de metodo-evento para ser sobreescrito en clases hijas Este metodo se llama cada vez que un elemento es extraido con exito</p>
+
+<pre>param [Object] nodo Elemento extraido</pre>
           
           
 
           
           <div class="method-source-code" id="extracted-source">
-            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 56</span>
+            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extracted</span>(<span class="ruby-identifier">nodo</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -380,13 +384,15 @@
 
         <div class="method-description">
           
-          
+          <p>Inserta un elemento en la lista del objeto listaDobleEnlazada</p>
+
+<pre>@param [Object] nodo Elemento a insertar</pre>
           
           
 
           
           <div class="method-source-code" id="insert-source">
-            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 20</span>
+            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">insert</span>(<span class="ruby-identifier">nodo</span>)
         <span class="ruby-ivar">@size</span> = <span class="ruby-ivar">@size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
         <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">nodo</span>.<span class="ruby-identifier">instance_of?</span> <span class="ruby-constant">Node</span>) <span class="ruby-keyword">then</span>
@@ -427,13 +433,15 @@
 
         <div class="method-description">
           
-          
+          <p>Metodo usado para insertar una lista de elementos en el objeto listaDobleEnlazada</p>
+
+<pre>@param [List] nodos Lista de elementos a insertar</pre>
           
           
 
           
           <div class="method-source-code" id="insertList-source">
-            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">insertList</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">nodos</span>)
         <span class="ruby-identifier">nodos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">nodo</span><span class="ruby-operator">|</span>
                 <span class="ruby-keyword">self</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">nodo</span>)
@@ -462,13 +470,15 @@
 
         <div class="method-description">
           
-          
+          <p>PlaceHolder de metodo-evento para ser sobreescrito en clases hijas Este metodo se llama cada vez que un elemento es insertado con exito</p>
+
+<pre>@param [Object] nodo Elemento insertado</pre>
           
           
 
           
           <div class="method-source-code" id="inserted-source">
-            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 37</span>
+            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inserted</span>(<span class="ruby-identifier">nodo</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -500,7 +510,7 @@
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 59</span>
+            <pre><span class="ruby-comment"># File lib/gema/ListaDobleEnlazada.rb, line 72</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>()
         <span class="ruby-identifier">result</span> = <span class="ruby-string">&quot;&quot;</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;-&gt; &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>() <span class="ruby-operator">+</span> <span class="ruby-string">&quot; &lt;&quot;</span> }

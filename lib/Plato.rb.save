@@ -17,8 +17,9 @@ class Plato < ListaDobleEnlazada
 	end
 
 	include Comparable
-	attr_reader :nombre, :peso, :totalProteinas, :porcentajeProteinas, :totalCarbohidratos, :porcentajeCarbohidratos, :totalLipidos, :porcentajeLipidos, :totalVCT		
-	
+	attr_reader :nombre
+	 :peso, :totalProteinas, :porcentajeProteinas, :totalCarbohidratos, :porcentajeCarbohidratos, :totalLipidos, :porcentajeLipidos, :totalVCT		
+	#Nombre del plato, Peso (en kg) del plato, 
 	#Devuelve la media de las huellasNutricionales de todos los alimentos del plato
 	def huellaNutricional()
 		return @huellaNutricional/self.size()
@@ -26,9 +27,8 @@ class Plato < ListaDobleEnlazada
 	
 	def initialize(nombre)
 		super()
-		#Nombre del plato
+		
 		@nombre = nombre
-		#Peso (en kg) del plato
 		@peso = 0
 		#Proteinas (en g) del plato
 		@totalProteinas = 0
