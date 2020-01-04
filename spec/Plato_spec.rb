@@ -52,6 +52,16 @@ describe Plato do
 		it "Probando que la huella nutricional media de todos los alimentos del plato corresponde" do
 			expect(@platoTest.huellaNutricional).to eq(1)
 		end
+
+		it "Probando que la inicialización via DSL funciona correctamente" do
+			plato = Plato.new("Plato de prueba DSL") do
+				alimento :descripcion => "carne de vaca",
+					 :gramos => 100
+				alimento :descripcion => "huevo",
+					 :gramos => 20
+			end
+			puts plato
+		end
 	end
 
 	context "Probando que los metodos de la instancia funciona correctamente" do

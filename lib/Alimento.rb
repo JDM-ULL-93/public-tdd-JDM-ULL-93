@@ -132,7 +132,7 @@ class Alimento
 	# @param [Float] lipidos.
 	# @param [Float] gei.
 	# @param [Float] terreno.
-	def initialize(nombre,proteinas,carbohidratos,lipidos, gei,terreno)
+	def initialize(nombre,proteinas,carbohidratos,lipidos, gei,terreno,cantidad = 1.0)
 		@nombre = nombre
 		@proteinas = proteinas
 		@carbohidratos = carbohidratos
@@ -141,7 +141,7 @@ class Alimento
 		@terreno = terreno
 
 		@valorEnergetico = (@proteinas * 4 ) + (@carbohidratos * 4) + (@lipidos * 9)
-		@cantidad = 1.0 #En Kg
+		@cantidad = cantidad #En Kg
 		impactoEnergia = case @valorEnergetico
 			when 0..67 then 1
 			when 670..83 then 2
