@@ -20,7 +20,20 @@ class Menu < ListaDobleEnlazada
 			end
 		end
 	end
-
+	
+	#Función de llamada para DSL
+	#Formato:
+	# {
+	#	:descripcion => <"Descripcion del plato">,
+	#	:precio => <"Precio total del plato">
+	#	:alimento => 	[
+	#				{ :descripcion => <"Nombre alimento">, :proteinas => X, :carbohidratos => Y, :lipidos => Z, :gei => A, :terreno => B, :gramos => C}
+	#				{ :descripcion => <"Nombre alimento">, :proteinas => X, :carbohidratos => Y, :lipidos => Z, :gei => A, :terreno => B, :gramos => C } 
+	#				.
+	#				.
+	#				.
+	#			]
+	# }
 	def componente( options = {} )
 		descripcion =  options[:descripcion]
 		plato = Plato.new( descripcion )

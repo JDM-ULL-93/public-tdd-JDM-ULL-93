@@ -58,7 +58,10 @@ class Plato < ListaDobleEnlazada
 			end
 		end
 	end
-
+	
+	#Funcion adhoc para soporte DSL
+	#Formato:
+	#  { :descripcion => <"Nombre alimento">, :proteinas => X, :carbohidratos => Y, :lipidos => Z, :gei => A, :terreno => B, :gramos => C }
 	def alimento(options = {} )
 		nombre = options[:descripcion] ? "#{options[:descripcion]}" : 'Sin nombre'
 		proteinas = options[:proteinas] ? options[:proteinas] : 0.1
