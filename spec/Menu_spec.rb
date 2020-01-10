@@ -23,6 +23,11 @@ describe Menu do
 				precio 7.50
 			end
 			puts menu
+			expect(menu.descripcion).to eq("Descripcion de menu de prueba")
+			expect(menu.precio).to eq(7.50)
+			expect(menu.size).to eq(3)
+			expect(menu[1].nombre).to eq("Papas pequeñas")
+			expect(menu[2].precio).to eq(1.50)
 		end		
 	end
 end

@@ -61,6 +61,8 @@ describe Plato do
 					 :gramos => 20
 			end
 			puts plato
+			expect(plato[0].nombre).to eq("carne de vaca")
+			expect(plato[1].cantidad).to eq(0.02)
 		end
 	end
 

@@ -42,12 +42,18 @@ class Menu < ListaDobleEnlazada
 		self.insert(plato)
 	end
 
-	def descripcion(desc)
-		@descripcion = desc
+	def descripcion(desc = "")
+		if desc != "" then
+			@descripcion = desc
+		end
+		return @descripcion
 	end
 
-	def precio(precio)
-		@precio = precio
+	def precio(precio = -1)
+		if precio != -1 then
+			@precio = precio
+		end
+		return @precio
 	end
 
 	def to_s
